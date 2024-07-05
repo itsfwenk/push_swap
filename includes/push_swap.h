@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 16:51:20 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/05 18:00:29 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "libft.h"
 
 # ifndef TRUE
@@ -41,5 +42,7 @@ int		*parsing(int argc, char **argv);
 /******************* UTILS *******************/
 
 void	free_split(char	**split_tab);
+
+int		num_tab_check_double(int num, int *num_tab, int n);
 
 #endif
