@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:25:21 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 17:40:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 18:22:57 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_pile	*ft_lstlast_push_swap(t_pile *lst)
+t_pile	*lstlast_pushswap(t_pile *lst)
 {
 	while (lst != NULL)
 	{
@@ -23,7 +23,7 @@ t_pile	*ft_lstlast_push_swap(t_pile *lst)
 	return (lst);
 }
 
-t_pile	*lst_new_push_swap(int nb)
+t_pile	*lstnew_pushswap(int nb)
 {
 	t_pile	*new;
 
@@ -34,7 +34,7 @@ t_pile	*lst_new_push_swap(int nb)
 	return (new);
 }
 
-void	ft_lstadd_back(t_pile **lst, t_pile *new)
+void	lstaddback_pushswap(t_pile **lst, t_pile *new)
 {
 	t_pile	*last;
 
@@ -54,5 +54,19 @@ void	ft_lstadd_back(t_pile **lst, t_pile *new)
 			return ;
 		}
 		last = last->next;
+	}
+}
+
+void	lstclear_pushswap(t_pile **lst)
+{
+	t_pile	*temp;
+
+	if (!lst || !*lst)
+		return ;
+	while (*lst != NULL)
+	{
+		temp = (*lst)->next;
+		free(*lst);
+		*lst = temp;
 	}
 }

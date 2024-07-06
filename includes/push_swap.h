@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 17:40:46 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 18:28:01 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,31 @@ typedef struct s_pile
 	struct s_pile	*next;
 }	t_pile;
 
+/******************* PUSH_SWAP *******************/
+
+void	create_pile_a(int argc, char **argv, t_pile **pile_a, int *num_tab);
+
 /******************* PARSING *******************/
 
 int		*parsing(int argc, char **argv);
 
 /******************* LIST_MANIP *******************/
 
-t_pile	*ft_lstlast_push_swap(t_pile *lst);
+t_pile	*lstlast_pushswap(t_pile *lst);
 
-t_pile	*lst_new_push_swap(int nb);
+t_pile	*lstnew_pushswap(int nb);
 
-void	ft_lstadd_back(t_pile **lst, t_pile *new);
+void	lstaddback_pushswap(t_pile **lst, t_pile *new);
+
+void	lstclear_pushswap(t_pile **lst);
 
 /******************* UTILS *******************/
 
 void	free_split(char	**split_tab);
 
 int		num_tab_check_double(int num, int *num_tab, int n);
+
+int		count_entry(int argc, char **argv);
 
 /******************* INSTRUCTIONS *******************/
 
