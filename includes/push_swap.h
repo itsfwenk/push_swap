@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 14:32:36 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 16:41:31 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,13 @@ t_pile	*ft_lstlast_push_swap(t_pile *lst);
 void	free_split(char	**split_tab);
 
 int		num_tab_check_double(int num, int *num_tab, int n);
+
+/******************* INSTRUCTIONS *******************/
+
+void	sa(t_pile *pile_a);
+
+void	pa(t_pile *pile_a, t_pile *pile_b);
+
+void	ra(t_pile *pile_a);
 
 #endif

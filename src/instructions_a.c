@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   instructions_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:12:15 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 15:26:59 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:03:12 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	pa(t_pile *pile_a, t_pile *pile_b)
 	pile_a = b_first;
 	pile_a->prev = NULL;
 	pile_a->next = a_first;
+	a_first->prev = pile_a;
 	pile_b = b_second;
 	pile_b->prev = NULL;
 }
@@ -58,10 +59,25 @@ void	ra(t_pile *pile_a)
 	a_first = pile_a;
 	a_second = pile_a->next;
 	a_last = ft_lstlast_push_swap(pile_a);
-
 	pile_a = a_second;
 	pile_a->prev = NULL;
 	a_last->next = a_first;
 	a_first->prev = a_last;
 	a_first->next = NULL;
+}
+
+void	rra(t_pile *pile_a)
+{
+	t_pile	*a_first;
+	t_pile	*a_last;
+	t_pile	*a_penultimate;
+
+	a_first = pile_a;
+	a_last = ft_lstlast_push_swap(pile_a);
+	a_penultimate = a_last->prev;
+	pile_a = a_last;
+	pile_a->prev = NULL;
+	pile_a->next = a_first;
+	a_first->prev = a_last;
+	a_penultimate->next = NULL;
 }
