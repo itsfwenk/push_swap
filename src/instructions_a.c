@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:12:15 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 17:03:12 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:57:45 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	ra(t_pile *pile_a)
 	t_pile	*a_second;
 	t_pile	*a_last;
 
+	if (pile_a == NULL)
+		return ;
 	a_first = pile_a;
 	a_second = pile_a->next;
 	a_last = ft_lstlast_push_swap(pile_a);
@@ -72,6 +74,8 @@ void	rra(t_pile *pile_a)
 	t_pile	*a_last;
 	t_pile	*a_penultimate;
 
+	if (pile_a == NULL)
+		return ;
 	a_first = pile_a;
 	a_last = ft_lstlast_push_swap(pile_a);
 	a_penultimate = a_last->prev;

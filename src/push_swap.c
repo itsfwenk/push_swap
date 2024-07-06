@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:16:01 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 17:49:59 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:53:41 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 {
 	int	*num_tab; //malloced
 
+	if (argc <= 1)
+		return (0);
 	num_tab = parsing(argc, argv);
 	if (num_tab == NULL)
 		return (write(2, "Error\n", 7), 0);

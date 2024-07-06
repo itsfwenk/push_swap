@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:15:57 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 17:35:31 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 18:00:55 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	check_entry(int n_entry, char **entry)
 			if (ft_isdigit(entry[i][j] == FALSE))
 				return (FALSE);
 		}
-		while(entry[i][j] != '\0')
+		while (entry[i][j] != '\0')
 		{
 			if (ft_isdigit(entry[i][j]) == FALSE)
 				return (FALSE);
@@ -118,7 +118,6 @@ int	*parsing(int argc, char **argv)
 	if (check_entry(n_entry, entry) == FALSE)
 		return (free_entry(argc, entry), NULL);
 	num_tab = atol_tab(n_entry, entry);
-		return (free_entry(argc, entry), NULL);
 	free_entry(argc, entry);
 	return (num_tab);
 }

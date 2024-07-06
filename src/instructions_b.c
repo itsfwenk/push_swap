@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:12:15 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 17:04:10 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:57:26 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	rb(t_pile *pile_b)
 	t_pile	*b_second;
 	t_pile	*b_last;
 
+	if (pile_b == NULL)
+		return ;
 	b_first = pile_b;
 	b_second = pile_b->next;
 	b_last = ft_lstlast_push_swap(pile_b);
@@ -72,6 +74,8 @@ void	rrb(t_pile *pile_b)
 	t_pile	*b_last;
 	t_pile	*b_penultimate;
 
+	if (pile_b == NULL)
+		return ;
 	b_first = pile_b;
 	b_last = ft_lstlast_push_swap(pile_b);
 	b_penultimate = b_last->prev;

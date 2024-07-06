@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 17:34:22 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:40:46 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int		*parsing(int argc, char **argv);
 /******************* LIST_MANIP *******************/
 
 t_pile	*ft_lstlast_push_swap(t_pile *lst);
+
+t_pile	*lst_new_push_swap(int nb);
+
+void	ft_lstadd_back(t_pile **lst, t_pile *new);
 
 /******************* UTILS *******************/
 
