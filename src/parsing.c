@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:15:57 by fli               #+#    #+#             */
-/*   Updated: 2024/07/05 17:57:50 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:35:31 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,35 @@ static int	check_entry(int n_entry, char **entry)
 	return (TRUE);
 }
 
-static int	*atoi_tab(int n_entry, char **entry)
+static long	ft_atol(const char *nptr)
+{
+	int			i;
+	long		nbr;
+	long		sign;
+
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = sign * (-1);
+		i++;
+	}
+	while (nptr [i] != '\0' && nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		if (nptr[i] >= '0' && nptr[i] <= '9')
+		{
+			nbr = nbr * 10;
+			nbr = nbr + (nptr[i++] - '0');
+		}
+	}
+	return (sign * nbr);
+}
+
+static int	*atol_tab(int n_entry, char **entry)
 {
 	int	i;
 	int	num;
@@ -50,7 +78,9 @@ static int	*atoi_tab(int n_entry, char **entry)
 	i = 0;
 	while (i < n_entry)
 	{
-		num = ft_atoi(entry[i]);
+		num = ft_atol(entry[i]);
+		if (num < INT_MIN || num > INT_MAX)
+			return (free(num_tab), NULL);
 		if (num_tab_check_double(num, num_tab, i + 1) == TRUE)
 			return (free(num_tab), NULL);
 		num_tab[i] = num;
@@ -87,7 +117,7 @@ int	*parsing(int argc, char **argv)
 	}
 	if (check_entry(n_entry, entry) == FALSE)
 		return (free_entry(argc, entry), NULL);
-	num_tab = atoi_tab(n_entry, entry);
+	num_tab = atol_tab(n_entry, entry);
 		return (free_entry(argc, entry), NULL);
 	free_entry(argc, entry);
 	return (num_tab);

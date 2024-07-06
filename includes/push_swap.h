@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 16:41:31 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 17:34:22 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 # include "libft.h"
 
 # ifndef TRUE
@@ -56,5 +57,17 @@ void	sa(t_pile *pile_a);
 void	pa(t_pile *pile_a, t_pile *pile_b);
 
 void	ra(t_pile *pile_a);
+
+void	sb(t_pile *pile_b);
+
+void	pb(t_pile *pile_a, t_pile *pile_b);
+
+void	rb(t_pile *pile_b);
+
+void	ss(t_pile *pile_a, t_pile *pile_b);
+
+void	rr(t_pile *pile_a, t_pile *pile_b);
+
+void	rrr(t_pile *pile_a, t_pile *pile_b);
 
 #endif
