@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 18:28:01 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/06 18:32:23 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_pile
 
 /******************* PUSH_SWAP *******************/
 
-void	create_pile_a(int argc, char **argv, t_pile **pile_a, int *num_tab);
+int	create_pile_a(int argc, char **argv, t_pile **pile_a, int *num_tab);
 
 /******************* PARSING *******************/
 
