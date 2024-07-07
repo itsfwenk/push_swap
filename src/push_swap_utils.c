@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:42:22 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 16:05:52 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/07 17:39:11 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,11 @@ int	count_entry(int argc, char **argv)
 	return (n_entry);
 }
 
-int	get_rank(int argc, char **argv, int *num_tab, t_pile *new_nod)
+int	get_rank(int tab_len, int *num_tab, t_pile *new_nod)
 {
 	int		i;
 	int		rank;
-	int		tab_len;
 
-	tab_len = count_entry(argc, argv);
 	rank = 0;
 	i = 0;
 	while (i < tab_len)
@@ -76,4 +74,26 @@ int	get_rank(int argc, char **argv, int *num_tab, t_pile *new_nod)
 		i++;
 	}
 	return (rank + 1);
+}
+
+int	found_median(int tab_len, int *num_tab, t_pile **pile_a)
+{
+	int	i;
+	int	median;
+	int	median_rank;
+	t_pile *current;
+
+	i = 0;
+	median_rank = (tab_len / 2) + 1;
+	current = *pile_a;
+	while(current != NULL)
+	{
+		if (current->rank == median_rank)
+		{
+			median = current->nb;
+			return (median);
+		}
+		current = current->next;
+	}
+	return (median);
 }

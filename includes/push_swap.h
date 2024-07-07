@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 16:39:50 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/07 18:14:23 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_pile
 
 /******************* PUSH_SWAP *******************/
 
-int		create_pile_a(int argc, char **argv, t_pile **pile_a, int *num_tab);
+int		create_pile_a(int tab_len, t_pile **pile_a, int *num_tab);
 
 /******************* PARSING *******************/
 
@@ -55,6 +55,8 @@ void	lstaddback_pushswap(t_pile **lst, t_pile *new);
 
 void	lstclear_pushswap(t_pile **lst);
 
+int		lstsize_pushswap(t_pile *lst);
+
 /******************* UTILS *******************/
 
 void	free_split(char	**split_tab);
@@ -63,11 +65,9 @@ int		num_tab_check_double(int num, int *num_tab, int n);
 
 int		count_entry(int argc, char **argv);
 
-int		get_rank(int argc, char **argv, int *num_tab, t_pile *new_nod);
+int		get_rank(int tab_len, int *num_tab, t_pile *new_nod);
 
-/******************* FOUND_MEDIAN *******************/
-
-int	found_median(int argc, char **argv, int *num_tab, t_pile **pile_a);
+int		found_median(int tab_len, int *num_tab, t_pile **pile_a);
 
 /******************* INSTRUCTIONS *******************/
 
@@ -88,5 +88,13 @@ void	ss(t_pile **pile_a, t_pile **pile_b);
 void	rr(t_pile **pile_a, t_pile **pile_b);
 
 void	rrr(t_pile **pile_a, t_pile **pile_b);
+
+/******************* SORTING *******************/
+
+int		check_sort(t_pile	**pile);
+
+void	sort_three(t_pile **pile_a);
+
+void	bymedian(int tab_len, int *num_tab, t_pile **pile_a, t_pile **pile_b);
 
 #endif
