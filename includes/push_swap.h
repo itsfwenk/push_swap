@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 18:32:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/07 16:39:50 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@
 typedef struct s_pile
 {
 	int				nb;
+	int				rank;
 	struct s_pile	*prev;
 	struct s_pile	*next;
 }	t_pile;
 
 /******************* PUSH_SWAP *******************/
 
-int	create_pile_a(int argc, char **argv, t_pile **pile_a, int *num_tab);
+int		create_pile_a(int argc, char **argv, t_pile **pile_a, int *num_tab);
 
 /******************* PARSING *******************/
 
@@ -62,24 +63,30 @@ int		num_tab_check_double(int num, int *num_tab, int n);
 
 int		count_entry(int argc, char **argv);
 
+int		get_rank(int argc, char **argv, int *num_tab, t_pile *new_nod);
+
+/******************* FOUND_MEDIAN *******************/
+
+int	found_median(int argc, char **argv, int *num_tab, t_pile **pile_a);
+
 /******************* INSTRUCTIONS *******************/
 
-void	sa(t_pile *pile_a);
+void	sa(t_pile **pile_a);
 
-void	pa(t_pile *pile_a, t_pile *pile_b);
+void	pa(t_pile **pile_a, t_pile **pile_b);
 
-void	ra(t_pile *pile_a);
+void	ra(t_pile **pile_a);
 
-void	sb(t_pile *pile_b);
+void	sb(t_pile **pile_b);
 
-void	pb(t_pile *pile_a, t_pile *pile_b);
+void	pb(t_pile **pile_a, t_pile **pile_b);
 
-void	rb(t_pile *pile_b);
+void	rb(t_pile **pile_b);
 
-void	ss(t_pile *pile_a, t_pile *pile_b);
+void	ss(t_pile **pile_a, t_pile **pile_b);
 
-void	rr(t_pile *pile_a, t_pile *pile_b);
+void	rr(t_pile **pile_a, t_pile **pile_b);
 
-void	rrr(t_pile *pile_a, t_pile *pile_b);
+void	rrr(t_pile **pile_a, t_pile **pile_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:25:21 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 18:22:57 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/07 16:13:09 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ t_pile	*lstlast_pushswap(t_pile *lst)
 
 t_pile	*lstnew_pushswap(int nb)
 {
-	t_pile	*new;
+	t_pile	*new_nod;
 
-	new = malloc(sizeof(t_pile));
-	if (new == NULL)
+	new_nod = malloc(sizeof(t_pile));
+	if (new_nod == NULL)
 		return (NULL);
-	new->nb = nb;
-	return (new);
+	new_nod->nb = nb;
+	new_nod->rank = 0;
+	new_nod->prev = NULL;
+	new_nod->next = NULL;
+	return (new_nod);
 }
 
 void	lstaddback_pushswap(t_pile **lst, t_pile *new)
@@ -51,6 +54,7 @@ void	lstaddback_pushswap(t_pile **lst, t_pile *new)
 		if ((last->next) == NULL)
 		{
 			last->next = new;
+			new->prev = last;
 			return ;
 		}
 		last = last->next;

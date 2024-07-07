@@ -6,82 +6,86 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:12:15 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 18:23:47 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/07 15:27:13 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_pile *pile_a)
+void	sa(t_pile **pile_a)
 {
 	t_pile	*first;
 	t_pile	*second;
 	t_pile	*third;
 
-	if (pile_a->next == NULL || pile_a == NULL)
+	if (pile_a == NULL || *pile_a == NULL || (*pile_a)->next == NULL)
 		return ;
-	first = pile_a;
-	second = pile_a->next;
-	third = pile_a->next->next;
-	pile_a = second;
-	pile_a->prev = NULL;
-	pile_a->next = first;
+	first = *pile_a;
+	second = (*pile_a)->next;
+	third = second->next;
+	second->prev = NULL;
+	second->next = first;
 	first->prev = second;
 	first->next = third;
-	third->prev = first;
+	if (third != NULL)
+		third->prev = first;
+	*pile_a = second;
 }
 
-void	pa(t_pile *pile_a, t_pile *pile_b)
+void	pa(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*a_first;
 	t_pile	*b_first;
 	t_pile	*b_second;
 
-	if (pile_b == NULL)
+	if (pile_b == NULL || *pile_b == NULL)
 		return ;
-	a_first = pile_a;
-	b_first = pile_b;
-	b_second = pile_b->next;
-	pile_a = b_first;
-	pile_a->prev = NULL;
-	pile_a->next = a_first;
-	a_first->prev = pile_a;
-	pile_b = b_second;
-	pile_b->prev = NULL;
+	a_first = *pile_a;
+	b_first = *pile_b;
+	b_second = b_first->next;
+	*pile_a = b_first;
+	b_first->prev = NULL;
+	b_first->next = a_first;
+	if (a_first != NULL)
+		a_first->prev = b_first;
+	*pile_b = b_second;
+	if (b_second != NULL)
+		b_second->prev = NULL;
 }
 
-void	ra(t_pile *pile_a)
+void	ra(t_pile **pile_a)
 {
 	t_pile	*a_first;
 	t_pile	*a_second;
 	t_pile	*a_last;
 
-	if (pile_a == NULL)
+	if (pile_a == NULL || *pile_a == NULL || (*pile_a)->next == NULL)
 		return ;
-	a_first = pile_a;
-	a_second = pile_a->next;
-	a_last = lstlast_pushswap(pile_a);
-	pile_a = a_second;
-	pile_a->prev = NULL;
+	a_first = *pile_a;
+	a_second = a_first->next;
+	a_last = lstlast_pushswap(*pile_a);
+	*pile_a = a_second;
+	a_second->prev = NULL;
 	a_last->next = a_first;
 	a_first->prev = a_last;
 	a_first->next = NULL;
 }
 
-void	rra(t_pile *pile_a)
+void	rra(t_pile **pile_a)
 {
 	t_pile	*a_first;
 	t_pile	*a_last;
 	t_pile	*a_penultimate;
 
-	if (pile_a == NULL)
+	if (pile_a == NULL || *pile_a == NULL || (*pile_a)->next == NULL)
 		return ;
-	a_first = pile_a;
-	a_last = lstlast_pushswap(pile_a);
+	a_first = *pile_a;
+	a_last = lstlast_pushswap(*pile_a);
 	a_penultimate = a_last->prev;
-	pile_a = a_last;
-	pile_a->prev = NULL;
-	pile_a->next = a_first;
+	*pile_a = a_last;
+	a_last->prev = NULL;
+	a_last->next = a_first;
 	a_first->prev = a_last;
-	a_penultimate->next = NULL;
+	if (a_penultimate != NULL)
+		a_penultimate->next = NULL;
 }

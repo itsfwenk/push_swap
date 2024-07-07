@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:42:22 by fli               #+#    #+#             */
-/*   Updated: 2024/07/06 18:13:17 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/07 16:05:52 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,22 @@ int	count_entry(int argc, char **argv)
 	if (argc == 2)
 		free_split(entry);
 	return (n_entry);
+}
+
+int	get_rank(int argc, char **argv, int *num_tab, t_pile *new_nod)
+{
+	int		i;
+	int		rank;
+	int		tab_len;
+
+	tab_len = count_entry(argc, argv);
+	rank = 0;
+	i = 0;
+	while (i < tab_len)
+	{
+		if (new_nod->nb > num_tab[i])
+			rank++;
+		i++;
+	}
+	return (rank + 1);
 }
