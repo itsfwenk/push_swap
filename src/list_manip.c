@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:25:21 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 10:33:54 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 12:50:37 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_pile	*lstnew_pushswap(int nb)
 		return (NULL);
 	new_nod->nb = nb;
 	new_nod->rank = 0;
+	new_nod->position = 1;
+	new_nod->pile = 'a';
 	new_nod->prev = NULL;
 	new_nod->next = NULL;
 	return (new_nod);
@@ -45,7 +47,6 @@ void	lstaddback_pushswap(t_pile **lst, t_pile *new)
 		return ;
 	if (!(*lst))
 	{
-		dprintf(2, "coucou\n");
 		*lst = new;
 		return ;
 	}
@@ -56,6 +57,7 @@ void	lstaddback_pushswap(t_pile **lst, t_pile *new)
 		{
 			last->next = new;
 			new->prev = last;
+			new->position = new->prev->position + 1;
 			return ;
 		}
 		last = last->next;

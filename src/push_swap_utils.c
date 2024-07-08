@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:42:22 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 10:29:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 13:34:53 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	num_tab_check_double(int num, int *num_tab, int n)
 	int	i;
 
 	i = 0;
-	dprintf(2, "num %d\n", num);
-	dprintf(2, "int n %d\n", n);
 	while (i < n - 1)
 	{
 		if (num == num_tab[i])
@@ -78,7 +76,7 @@ int	get_rank(int tab_len, int *num_tab, t_pile *new_nod)
 	return (rank + 1);
 }
 
-int	found_median(int tab_len, t_pile **pile_a)
+int	found_median(int tab_len, t_pile **pile_a) /////////
 {
 	int	i;
 	int	median;
@@ -98,4 +96,12 @@ int	found_median(int tab_len, t_pile **pile_a)
 		current = current->next;
 	}
 	return (-1);
+}
+
+int	v_abs(int value)
+{
+	if (value < 0)
+		return (value * -1);
+	else
+		return (value);
 }

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 10:22:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 15:32:37 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_pile
 {
 	int				nb;
 	int				rank;
+	int				position;
+	char			pile;
 	struct s_pile	*prev;
 	struct s_pile	*next;
 }	t_pile;
@@ -69,6 +71,8 @@ int		get_rank(int tab_len, int *num_tab, t_pile *new_nod);
 
 int		found_median(int tab_len, t_pile **pile_a);
 
+int		v_abs(int value);
+
 /******************* INSTRUCTIONS *******************/
 
 void	sa(t_pile **pile_a);
@@ -100,5 +104,9 @@ int		check_sort(t_pile	**pile);
 void	sort_three(t_pile **pile_a);
 
 void	bymedian(int tab_len, t_pile **pile_a, t_pile **pile_b);
+
+/******************* SUPERCALCULATOR *******************/
+
+int		count_move(t_pile *to_sort, t_pile **pile_a, t_pile **pile_b);
 
 #endif

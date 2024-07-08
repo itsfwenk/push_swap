@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:12:15 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 15:27:13 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 16:23:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	sa(t_pile **pile_a)
 	if (third != NULL)
 		third->prev = first;
 	*pile_a = second;
+	second->position = 1;
+	first->position = 2;
 }
 
 void	pa(t_pile **pile_a, t_pile **pile_b)

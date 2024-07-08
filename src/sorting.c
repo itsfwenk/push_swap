@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:58:05 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 10:50:21 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 16:03:12 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,28 @@ void	bymedian(int tab_len, t_pile **pile_a, t_pile **pile_b)
 			}
 		}
 	}
+	sort_three(pile_a);
+}
+
+t_pile	*get_cheapest(t_pile **pile_a, t_pile **pile_b)
+{
+	t_pile	*cheapest;
+	t_pile	*temp;
+
+	temp = *pile_b;
+	cheapest = *pile_b;
+	while (temp != NULL)
+	{
+		if (count_move(cheapest, pile_a, pile_b) > count_move(temp, pile_a, pile_b))
+			cheapest = temp;
+		temp = temp->next;
+	}
+	return (cheapest);
+}
+
+int	sort(int tab_len, t_pile **pile_a, t_pile **pile_b)
+{
+	t_pile	*cheapest;
+
+
 }
