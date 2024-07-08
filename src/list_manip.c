@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:25:21 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 17:06:09 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 10:33:54 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	lstaddback_pushswap(t_pile **lst, t_pile *new)
 		return ;
 	if (!(*lst))
 	{
+		dprintf(2, "coucou\n");
 		*lst = new;
 		return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:16:01 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 18:00:58 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 10:39:01 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	int	tab_len;
 	int	*num_tab; //malloced
 	t_pile	*pile_a; //malloced
-	t_pile	*pile_b;
+	// t_pile	*pile_b;
 
 	if (argc <= 1)
 		return (0);
@@ -43,7 +43,17 @@ int	main(int argc, char **argv)
 	if (num_tab == NULL)
 		return (write(2, "Error\n", 7), 0);
 	tab_len = count_entry(argc, argv);
+	if (tab_len == -1)
+		return (0);
+	pile_a = NULL;
 	if (create_pile_a(tab_len, &pile_a, num_tab) == FALSE)
 		return (-1);
-	bymedian(tab_len, num_tab, &pile_a, &pile_b);
+	if (tab_len == 3)
+		sort_three(&pile_a);
+	while (pile_a != NULL)
+	{
+		dprintf(2, "rank %d num %d\n", pile_a->rank, pile_a->nb);
+		pile_a = pile_a->next;
+	}
+	// bymedian(tab_len, num_tab, &pile_a, &pile_b);
 }

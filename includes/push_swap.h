@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 18:14:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 10:22:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		count_entry(int argc, char **argv);
 
 int		get_rank(int tab_len, int *num_tab, t_pile *new_nod);
 
-int		found_median(int tab_len, int *num_tab, t_pile **pile_a);
+int		found_median(int tab_len, t_pile **pile_a);
 
 /******************* INSTRUCTIONS *******************/
 
@@ -77,11 +77,15 @@ void	pa(t_pile **pile_a, t_pile **pile_b);
 
 void	ra(t_pile **pile_a);
 
+void	rra(t_pile **pile_a);
+
 void	sb(t_pile **pile_b);
 
 void	pb(t_pile **pile_a, t_pile **pile_b);
 
 void	rb(t_pile **pile_b);
+
+void	rrb(t_pile **pile_b);
 
 void	ss(t_pile **pile_a, t_pile **pile_b);
 
@@ -95,6 +99,6 @@ int		check_sort(t_pile	**pile);
 
 void	sort_three(t_pile **pile_a);
 
-void	bymedian(int tab_len, int *num_tab, t_pile **pile_a, t_pile **pile_b);
+void	bymedian(int tab_len, t_pile **pile_a, t_pile **pile_b);
 
 #endif
