@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:58:05 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 16:03:12 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 17:39:31 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,23 @@ t_pile	*get_cheapest(t_pile **pile_a, t_pile **pile_b)
 int	sort(int tab_len, t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*cheapest;
+	t_pile *to_put_top_a;
 
-
+	while (check_sort(pile_a) == FALSE)
+	{
+		cheapest = get_cheapest(pile_a, pile_b);
+		to_put_top_a = get_to_put_top_a(cheapest, pile_a);
+		if (r_cheaper(to_put_top_a, pile_a) == TRUE);
+		{
+			if (r_cheaper(cheapest, pile_b) == TRUE)
+			{
+				while (*pile_a != to_put_top_a || *pile_b != cheapest)
+				{
+					rr(pile_a, pile_b);
+					if (*pile_a != to_put_top_a || *pile_b != cheapest)
+						break;
+				}
+			}
+		}
+	}
 }

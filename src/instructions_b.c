@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:12:15 by fli               #+#    #+#             */
-/*   Updated: 2024/07/07 15:37:14 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 17:09:52 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	sb(t_pile **pile_b)
 	if (third != NULL)
 		third->prev = first;
 	*pile_b = second;
+	second->position = 1;
+	first->position = 2;
 }
 
 void	pb(t_pile **pile_a, t_pile **pile_b)
@@ -51,6 +53,7 @@ void	pb(t_pile **pile_a, t_pile **pile_b)
 	*pile_a = a_second;
 	if (a_second != NULL)
 		a_second->prev = NULL;
+	p_pupdate(pile_a, pile_b);
 }
 
 void	rb(t_pile **pile_b)
@@ -69,6 +72,7 @@ void	rb(t_pile **pile_b)
 	b_last->next = b_first;
 	b_first->prev = b_last;
 	b_first->next = NULL;
+	o_pupdate(pile_b);
 }
 
 void	rrb(t_pile **pile_b)
@@ -88,4 +92,5 @@ void	rrb(t_pile **pile_b)
 	b_first->prev = b_last;
 	if (b_penultimate != NULL)
 		b_penultimate->next = NULL;
+	o_pupdate(pile_b);
 }

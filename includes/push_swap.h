@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 15:32:37 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 17:46:52 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int		found_median(int tab_len, t_pile **pile_a);
 
 int		v_abs(int value);
 
+void	pos_update(t_pile **pile);
+
 /******************* INSTRUCTIONS *******************/
 
 void	sa(t_pile **pile_a);
@@ -105,8 +107,26 @@ void	sort_three(t_pile **pile_a);
 
 void	bymedian(int tab_len, t_pile **pile_a, t_pile **pile_b);
 
+t_pile	*get_cheapest(t_pile **pile_a, t_pile **pile_b);
+
+/******************* SORTING_2 *******************/
+
+void	prep_push(t_pile **pile_a, t_pile **pile_b);
+
 /******************* SUPERCALCULATOR *******************/
 
+int		r_cheaper(t_pile *to_put_top, t_pile **pile);
+
+t_pile	*get_to_put_top_a(t_pile *to_sort, t_pile **pile_a);
+
+int		move_to_top(t_pile *to_sort, t_pile **pile);
+
 int		count_move(t_pile *to_sort, t_pile **pile_a, t_pile **pile_b);
+
+/******************* LST_UPDATE *******************/
+
+void	p_pupdate(t_pile **pile_a, t_pile **pile_b);
+
+void	o_pupdate(t_pile **pile);
 
 #endif

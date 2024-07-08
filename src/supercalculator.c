@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:16:35 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 16:04:50 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 17:24:39 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	r_cheaper(t_pile *to_put_top, t_pile **pile)
+int	r_cheaper(t_pile *to_put_top, t_pile **pile)
 {
 	int	r_moves;
 	int	rr_moves;
@@ -38,7 +38,7 @@ static int	r_cheaper(t_pile *to_put_top, t_pile **pile)
 		return (FALSE);
 }
 
-static t_pile	*get_to_put_top_a(t_pile *to_sort, t_pile **pile_a)
+t_pile	*get_to_put_top_a(t_pile *to_sort, t_pile **pile_a)
 {
 	t_pile	*to_put_top_a;
 
@@ -50,7 +50,7 @@ static t_pile	*get_to_put_top_a(t_pile *to_sort, t_pile **pile_a)
 	return (to_put_top_a);
 }
 
-static int	move_to_top(t_pile *to_sort, t_pile **pile)
+int	move_to_top(t_pile *to_sort, t_pile **pile)
 {
 	int		move;
 
