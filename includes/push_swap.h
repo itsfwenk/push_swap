@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 17:46:52 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 18:14:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ t_pile	*get_cheapest(t_pile **pile_a, t_pile **pile_b);
 
 /******************* SORTING_2 *******************/
 
-void	prep_push(t_pile **pile_a, t_pile **pile_b);
+void	sort(t_pile **pile_a, t_pile **pile_b);
 
 /******************* SUPERCALCULATOR *******************/
 

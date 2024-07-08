@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:45:32 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 18:07:53 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/08 18:15:03 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,38 @@ static void	r_or_rr(t_pile *to_top, t_pile **pile)
 	}
 }
 
-void	prep_push(t_pile **pile_a, t_pile **pile_b)
+void	sort(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*cheapest;
 	t_pile *to_put_top_a;
 
-	cheapest = get_cheapest(pile_a, pile_b);
-	to_put_top_a = get_to_put_top_a(cheapest, pile_a);
-	if (r_cheaper(to_put_top_a, pile_a) == r_cheaper(cheapest, pile_b))
-		rr_rrr(cheapest, to_put_top_a, pile_a, pile_b);
-	else
+	while (check_sort(pile_a) == FALSE)
 	{
-		r_or_rrr(to_put_top_a, pile_a);
-		r_or_rrr(cheapest, pile_b);
+		cheapest = get_cheapest(pile_a, pile_b);
+		to_put_top_a = get_to_put_top_a(cheapest, pile_a);
+		if (r_cheaper(to_put_top_a, pile_a) == r_cheaper(cheapest, pile_b))
+			rr_rrr(cheapest, to_put_top_a, pile_a, pile_b);
+		else
+		{
+			r_or_rrr(to_put_top_a, pile_a);
+			r_or_rrr(cheapest, pile_b);
+		}
+		pa(pile_a, pile_b);
 	}
 }
+
+// void	prep_push(t_pile **pile_a, t_pile **pile_b)
+// {
+// 	t_pile	*cheapest;
+// 	t_pile *to_put_top_a;
+
+// 	cheapest = get_cheapest(pile_a, pile_b);
+// 	to_put_top_a = get_to_put_top_a(cheapest, pile_a);
+// 	if (r_cheaper(to_put_top_a, pile_a) == r_cheaper(cheapest, pile_b))
+// 		rr_rrr(cheapest, to_put_top_a, pile_a, pile_b);
+// 	else
+// 	{
+// 		r_or_rrr(to_put_top_a, pile_a);
+// 		r_or_rrr(cheapest, pile_b);
+// 	}
+// }
