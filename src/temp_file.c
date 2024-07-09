@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   temp_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 17:25:59 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 10:35:30 by fli              ###   ########.fr       */
+/*   Created: 2024/07/09 10:52:23 by fli               #+#    #+#             */
+/*   Updated: 2024/07/09 10:59:24 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ss(t_pile **pile_a, t_pile **pile_b)
+void	print_list_content(t_pile **pile_a,t_pile **pile_b)
 {
-	sa(pile_a);
-	sb(pile_b);
-	write(1, "ss\n", 4);
-}
+	t_pile	*temp;
 
-void	rr(t_pile **pile_a, t_pile **pile_b)
-{
-	ra(pile_a);
-	rb(pile_b);
-	write(1, "rr", 4);
-}
-
-void	rrr(t_pile **pile_a, t_pile **pile_b)
-{
-	rra(pile_a);
-	rrb(pile_b);
-	write(1, "rrr", 5);
+	temp = *pile_a;
+	dprintf(2, "PILE A\n");
+	while (temp != NULL)
+	{
+		dprintf(2, "rank %d num %d\n", temp->rank, temp->nb);
+		temp = temp->next;
+	}
+	temp = *pile_b;
+	dprintf(2, "PILE B\n");
+	while (temp != NULL)
+	{
+		dprintf(2, "rank %d num %d\n", temp->rank, temp->nb);
+		temp = temp->next;
+	}
 }

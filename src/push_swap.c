@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:16:01 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 16:21:26 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 12:18:51 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int	main(int argc, char **argv)
 		sort_three(&pile_a);
 	pile_b = NULL;
 	bymedian(tab_len, &pile_a, &pile_b);
+	sort(&pile_a, &pile_b);
+	// dprintf(2, "end of prog\n");
+	print_list_content(&pile_a, &pile_b);
+	lstclear_pushswap(&pile_a);
+	free(num_tab);
 }
 
 	// while (pile_a != NULL)

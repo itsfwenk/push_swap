@@ -6,17 +6,17 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:58:05 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 18:14:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 11:36:05 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_sort(t_pile	**pile)
+int	check_sort(t_pile	**pile_a)
 {
 	t_pile	*current;
 
-	current = *pile;
+	current = *pile_a;
 	if (current->rank != 1)
 		return (FALSE);
 	while (current->next != NULL)
@@ -28,9 +28,23 @@ int	check_sort(t_pile	**pile)
 	return (TRUE);
 }
 
+static int	check_sort_three(t_pile	**pile)
+{
+	t_pile	*current;
+
+	current = *pile;
+	while (current->next != NULL)
+	{
+		if (current->rank > (current->next)->rank)
+			return (FALSE);
+		current = current->next;
+	}
+	return (TRUE);
+}
+
 void	sort_three(t_pile **pile_a)
 {
-	while (check_sort(pile_a) != TRUE)
+	while (check_sort_three(pile_a) != TRUE)
 	{
 		if ((*pile_a)->next->rank < (*pile_a)->rank && (*pile_a)->next->rank > (*pile_a)->next->next->rank) // 3 2 1 -> 2 1 3
 			ra(pile_a);

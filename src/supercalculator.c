@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:16:35 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 17:24:39 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 12:00:40 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	r_cheaper(t_pile *to_put_top, t_pile **pile)
 
 	temp = *pile;
 	r_moves = 0;
-	while (to_put_top->position > temp->position)
+	while (to_put_top != NULL && to_put_top->position > temp->position)
 	{
 		r_moves++;
 		temp = temp->next;
@@ -43,7 +43,7 @@ t_pile	*get_to_put_top_a(t_pile *to_sort, t_pile **pile_a)
 	t_pile	*to_put_top_a;
 
 	to_put_top_a = *pile_a;
-	while (to_put_top_a->position < to_sort->position)
+	while (to_put_top_a != NULL && to_put_top_a->position < to_sort->position)
 	{
 		to_put_top_a = to_put_top_a->next;
 	}
@@ -54,10 +54,11 @@ int	move_to_top(t_pile *to_sort, t_pile **pile)
 {
 	int		move;
 
+	// dprintf(2, "to sort : %d, in pile %c\n", to_sort->nb, (*pile)->pile);
 	move = 0;
 	if (r_cheaper(to_sort, pile) == TRUE)
 		move = to_sort->position - 1;
-	else
+	else if (to_sort != NULL)
 		move = lstsize_pushswap(*pile) - to_sort->position + 1;
 	return (move);
 }
@@ -70,12 +71,15 @@ int	count_move(t_pile *to_sort, t_pile **pile_a, t_pile **pile_b)
 	t_pile *to_put_top_a;
 
 	to_put_top_a = get_to_put_top_a(to_sort, pile_a);
+	// dprintf(2, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+	// print_list_content(pile_a, pile_b);
 	move_a = move_to_top(to_put_top_a, pile_a);
 	move_b = move_to_top(to_sort, pile_b);
 	if (r_cheaper(to_put_top_a, pile_a) == r_cheaper(to_sort, pile_b))
 		moves = ((move_a + move_b) / 2) + v_abs(move_a - move_b) + 1;
 	else
 		moves = move_a + move_b + 1;
+	return (moves);
 }
 
 // int	count_move_a(t_pile *to_sort, t_pile **pile_a, t_pile **pile_b)

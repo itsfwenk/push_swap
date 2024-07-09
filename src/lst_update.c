@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:02:11 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 17:07:18 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 10:48:21 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	p_pupdate(t_pile **pile_a, t_pile **pile_b)
 	p = 1;
 	temp_a = *pile_a;
 	temp_b = *pile_b;
-	(*pile_a)->pile = (*pile_a)->next->pile;
-	(*pile_b)->pile = (*pile_b)->next->pile;
+	if ((*pile_a != NULL))
+		(*pile_a)->pile = 'a';
+	if ((*pile_b != NULL))
+		(*pile_b)->pile = 'b';
 	while (temp_a != NULL || temp_b != NULL)
 	{
 		if (temp_a != NULL)
@@ -44,7 +46,7 @@ void	o_pupdate(t_pile **pile)
 	t_pile	*temp;
 
 	int		p;
-
+	temp = *pile;
 	p = 1;
 	while (temp != NULL)
 	{

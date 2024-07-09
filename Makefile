@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/08 10:14:05 by fli              ###   ########.fr        #
+#    Updated: 2024/07/09 10:55:50 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,14 @@ CFILES = instructions_a.c \
 		 instructions_b.c \
 		 instructions.c \
 		 list_manip.c \
+		 lst_update.c \
 		 parsing.c \
 		 push_swap_utils.c \
 		 push_swap.c \
 		 sorting.c \
+		 sorting2.c \
+		 supercalculator.c \
+		 temp_file.c \
 
 BFILES = bonus.c
 

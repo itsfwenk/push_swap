@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/08 18:14:58 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 11:26:15 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	rrr(t_pile **pile_a, t_pile **pile_b);
 
 /******************* SORTING *******************/
 
-int		check_sort(t_pile	**pile);
+int		check_sort(t_pile	**pile_a);
 
 void	sort_three(t_pile **pile_a);
 
@@ -128,5 +128,9 @@ int		count_move(t_pile *to_sort, t_pile **pile_a, t_pile **pile_b);
 void	p_pupdate(t_pile **pile_a, t_pile **pile_b);
 
 void	o_pupdate(t_pile **pile);
+
+/******************* TEMP_FILE *******************/
+
+void	print_list_content(t_pile **pile_a,t_pile **pile_b);
 
 #endif
