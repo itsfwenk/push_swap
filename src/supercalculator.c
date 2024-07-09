@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:16:35 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 12:00:40 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 13:56:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_pile	*get_to_put_top_a(t_pile *to_sort, t_pile **pile_a)
 	t_pile	*to_put_top_a;
 
 	to_put_top_a = *pile_a;
-	while (to_put_top_a != NULL && to_put_top_a->position < to_sort->position)
+	while (to_put_top_a != NULL && to_put_top_a->rank < to_sort->rank)
 	{
 		to_put_top_a = to_put_top_a->next;
 	}

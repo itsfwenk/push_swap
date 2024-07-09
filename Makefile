@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/09 10:55:50 by fli              ###   ########.fr        #
+#    Updated: 2024/07/09 14:28:48 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ MANDATORY = ./src/
 CFILES = instructions_a.c \
 		 instructions_b.c \
 		 instructions.c \
+		 instructions_wrap.c \
 		 list_manip.c \
 		 lst_update.c \
 		 parsing.c \

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:45:32 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 12:18:33 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 14:05:21 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,34 @@ static void	r_or_rr(t_pile *to_top, t_pile **pile)
 	}
 }
 
+static t_pile	*find_first(t_pile **pile_a)
+{
+	t_pile	*temp;
+
+	temp = *pile_a;
+	while (temp != NULL && temp->rank != 1)
+		temp = temp->next;
+	return (temp);
+}
+
+void	sort_last(t_pile **pile_a, t_pile **pile_b)
+{
+	t_pile	*to_put_top_a;
+
+	to_put_top_a = *pile_a;
+	while (to_put_top_a->rank != (*pile_b)->rank + 1)
+		to_put_top_a = to_put_top_a->next;
+	while ((*pile_a)->rank != (*pile_b)->rank + 1)
+		r_or_rr(to_put_top_a, pile_a);
+	pa(pile_a, pile_b);
+}
+
 void	sort(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*cheapest;
 	t_pile *to_put_top_a;
 
-	// int	i = 1;
-	// print_list_content(pile_a, pile_b);
-	while ((*pile_b) != NULL)
+	while ((*pile_b)->next != NULL)
 	{
 		cheapest = get_cheapest(pile_a, pile_b);
 		to_put_top_a = get_to_put_top_a(cheapest, pile_a);
@@ -82,11 +102,15 @@ void	sort(t_pile **pile_a, t_pile **pile_b)
 		while (*pile_b != cheapest)
 			r_or_rr(cheapest, pile_b);
 		pa(pile_a, pile_b);
-		// dprintf(2, "tour : %d\n", i++);
-		// print_list_content(pile_a, pile_b);
 	}
-	// if (check_sort(pile_a) == FALSE)
-	// 	dprintf(2, "NOT SORTED\n");
+	sort_last(pile_a, pile_b);
+	while ((*pile_a)->rank != 1)
+	{
+		if (r_cheaper(find_first(pile_a), pile_a) == TRUE)
+			ra(pile_a);
+		else
+			rra(pile_a);
+	}
 }
 
 /* void	sort(t_pile **pile_a, t_pile **pile_b)

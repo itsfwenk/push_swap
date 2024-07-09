@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 11:26:15 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 14:28:14 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,12 @@ void	ss(t_pile **pile_a, t_pile **pile_b);
 void	rr(t_pile **pile_a, t_pile **pile_b);
 
 void	rrr(t_pile **pile_a, t_pile **pile_b);
+
+void	s_wp(t_pile **pile_b);
+
+void	r_wp(t_pile **pile_b);
+
+void	rr_wp(t_pile **pile_b);
 
 /******************* SORTING *******************/
 
