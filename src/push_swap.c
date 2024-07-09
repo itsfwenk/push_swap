@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:16:01 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 14:30:27 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/09 17:21:08 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	create_pile_a(int tab_len, t_pile **pile_a, int *num_tab)
 int	main(int argc, char **argv)
 {
 	int	tab_len;
-	int	*num_tab; //malloced
-	t_pile	*pile_a; //malloced
+	int	*num_tab;
+	t_pile	*pile_a;
 	t_pile	*pile_b;
 
 	if (argc <= 1)
@@ -55,8 +55,6 @@ int	main(int argc, char **argv)
 	pile_b = NULL;
 	bymedian(tab_len, &pile_a, &pile_b);
 	sort(&pile_a, &pile_b);
-	// dprintf(2, "end of prog\n");
-	// print_list_content(&pile_a, &pile_b);
 	lstclear_pushswap(&pile_a);
 	free(num_tab);
 }

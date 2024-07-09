@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/09 14:28:48 by fli              ###   ########.fr        #
+#    Updated: 2024/07/09 17:46:28 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ CFILES = instructions_a.c \
 		 sorting.c \
 		 sorting2.c \
 		 supercalculator.c \
+		 optimization.c \
 		 temp_file.c \
 
 BFILES = bonus.c
