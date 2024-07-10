@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/10 09:36:25 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/10 16:29:49 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,7 @@ void	bysmolmedian(int median_rank, int tab_len, t_pile **pile_a, t_pile **pile_b
 /******************* TEMP_FILE *******************/
 
 void	print_list_content(t_pile **pile_a,t_pile **pile_b);
+
+int		top_cheaper(int median, t_pile **pile_a);
 
 #endif
