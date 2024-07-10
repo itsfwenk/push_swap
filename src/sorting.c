@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:58:05 by fli               #+#    #+#             */
-/*   Updated: 2024/07/10 10:06:19 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/10 16:47:29 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,17 @@ void	bymedian(int tab_len, t_pile **pile_a, t_pile **pile_b)
 					rb(pile_b);
 				}
 			}
+			// else if (tab_len == 100)
+			// {
+			// 	while (lstsize_pushswap(*pile_a) > tab_len / 2)
+			// 	{
+			// 		if ((*pile_a)->rank < median_rank)
+			// 			bysmolmedian(median_rank, tab_len, pile_a, pile_b);
+			// 		else
+			// 			ra(pile_a);
+			// 	}
+			// 	pb(pile_a, pile_b);
+			// }
 			else
 			{
 				while (lstsize_pushswap(*pile_a) > tab_len / 2)
