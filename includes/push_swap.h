@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 17:37:39 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/10 09:36:25 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,9 @@ void	o_pupdate(t_pile **pile);
 
 /******************* OPTIMIZATION *******************/
 
-void	bybigmedian(int tab_len, t_pile **pile_a, t_pile **pile_b);
+void	bybigmedian(int median_rank, int tab_len, t_pile **pile_a, t_pile **pile_b);
 
-void	bysmolmedian(int tab_len, t_pile **pile_a, t_pile **pile_b);
+void	bysmolmedian(int median_rank, int tab_len, t_pile **pile_a, t_pile **pile_b);
 
 /******************* TEMP_FILE *******************/
 
