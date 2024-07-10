@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 17:45:32 by fli               #+#    #+#             */
-/*   Updated: 2024/07/09 14:05:21 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/10 21:48:32 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,20 @@ static void	rr_rrr(t_pile *cheap, t_pile *put_top, t_pile **p_a, t_pile **p_b)
 	{
 		if (r_cheaper(cheap, p_b) == TRUE)
 		{
-			while (*p_a != put_top || *p_b != cheap)
-				{
-					rr(p_a, p_b);
-					if (*p_a != put_top || *p_b != cheap)
-						break;
-				}
+			while (*p_a != put_top && *p_b != cheap)
+			{
+				rr(p_a, p_b);
+			}
 		}
 	}
 	if (r_cheaper(put_top, p_a) == FALSE)
 	{
 		if (r_cheaper(cheap, p_b) == FALSE)
 		{
-			while (*p_a != put_top || *p_b != cheap)
-				{
-					rr(p_a, p_b);
-					if (*p_a != put_top || *p_b != cheap)
-						break;
-				}
+			while (*p_a != put_top && *p_b != cheap)
+			{
+				rr(p_a, p_b);
+			}
 		}
 	}
 }
@@ -89,18 +85,25 @@ void	sort_last(t_pile **pile_a, t_pile **pile_b)
 void	sort(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*cheapest;
-	t_pile *to_put_top_a;
+	t_pile	*to_put_top_a;
 
 	while ((*pile_b)->next != NULL)
 	{
 		cheapest = get_cheapest(pile_a, pile_b);
 		to_put_top_a = get_to_put_top_a(cheapest, pile_a);
+
 		if (r_cheaper(to_put_top_a, pile_a) == r_cheaper(cheapest, pile_b))
+		{
 			rr_rrr(cheapest, to_put_top_a, pile_a, pile_b);
+		}
 		while (*pile_a != to_put_top_a)
+		{
 			r_or_rr(to_put_top_a, pile_a);
+		}
 		while (*pile_b != cheapest)
+		{
 			r_or_rr(cheapest, pile_b);
+		}
 		pa(pile_a, pile_b);
 	}
 	sort_last(pile_a, pile_b);
