@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:02:51 by fli               #+#    #+#             */
-/*   Updated: 2024/07/10 17:16:38 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/10 18:12:06 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,7 @@ void	bysmolmedian(int median_rank, int tab_len, t_pile **pile_a, t_pile **pile_b
 /******************* TEMP_FILE *******************/
 
 void	print_list_content(t_pile **pile_a,t_pile **pile_b);
+
+/******************* CHECKER *******************/
 
 #endif
