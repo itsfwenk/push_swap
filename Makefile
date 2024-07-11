@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/10 18:35:21 by fli              ###   ########.fr        #
+#    Updated: 2024/07/11 10:10:52 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,7 @@ BFILES = checker.c \
 		 parsing.c \
 		 push_swap_utils.c \
 		 sorting.c \
-		 sorting2.c \
 		 supercalculator.c \
-		 optimization.c \
 		 temp_file.c \
 
 SRC_MANDATORY = $(addprefix $(MANDATORY), $(CFILES))
